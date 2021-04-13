@@ -7,6 +7,10 @@ This is a basic template to develop with InterSystems IRIS
 * It creates a Namespace IRISAPP without interoperability Enabled
 * It is designed to develop with Package First paradigm
 
+## Usage
+start a new dev repository with InterSystems IRIS using this one as a template.
+Once you clone the new repo on your laptop and open the VSCode with installed InterSystems Pack you'll be able to start development immediately
+
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
