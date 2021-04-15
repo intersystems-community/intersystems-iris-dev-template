@@ -7,6 +7,8 @@ ARG IMAGE=intersystemsdc/iris-community:2020.4.0.547.0-zpm
 FROM $IMAGE
 
 USER root   
+## add git
+RUN apt update && apt-get -y install git
         
 WORKDIR /opt/irisbuild
 RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisbuild
