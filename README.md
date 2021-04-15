@@ -2,18 +2,20 @@
 This is a basic template to develop with InterSystems IRIS
 
 ## Description
-The template uses InterSystems IRIS Community Edition running in a docker container
-It uses ZPM Package Manager to load InterSystems ObjectScript
-It creates a Namespace IRISAPP without interoperability Enabled
-It is designed to develop with Package first paradigm
+* The template uses InterSystems IRIS Community Edition running in a docker container
+* It uses ZPM Package Manager to load InterSystems ObjectScript
+* It creates a Namespace IRISAPP without interoperability Enabled
+* It is designed to develop with Package First paradigm
+
+## Usage
+start a new dev repository with InterSystems IRIS using this one as a template.
+Once you clone the new repo on your laptop and open the VSCode with installed InterSystems Pack you'll be able to start development immediately
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
 ## Installation 
-
 Clone/git pull the repo into any local directory
-
 ```
 $ git clone https://github.com/intersystems-community/intersystems-iris-dev-template.git
 ```
@@ -36,7 +38,7 @@ Open IRIS terminal:
 
 ```
 $ docker-compose exec iris iris session iris
-USER>write ##class(dc.PackageSample.ObjectScript).Test()
+IRISAPP>write ##class(dc.PackageSample.ObjectScript).Test()
 ```
 ## How to start coding
 This repository is ready to code in VSCode with ObjectScript plugin.
@@ -57,6 +59,12 @@ The script in Installer.cls will import everything you place under /src into IRI
 
 The simplest dockerfile which starts IRIS and imports code from /src folder into it.
 Use the related docker-compose.yml to easily setup additional parametes like port number and where you map keys and host folders.
+
+
+### src folder
+src/iris contains InterSystems IRIS Objectscript code
+src/java containers Java code 
+src/python - python code, etc.
 
 
 ### .vscode/settings.json
