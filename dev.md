@@ -7,7 +7,7 @@ docker system prune -f
 
 ## build container with no cache
 ```
-docker-compose build --no-cache
+docker-compose build --no-cache --progress=plain
 ```
 ## start iris container
 ```
