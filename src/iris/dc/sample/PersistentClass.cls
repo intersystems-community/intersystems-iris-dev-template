@@ -1,4 +1,4 @@
-Class dc.PackageSample.PersistentClass Extends %Persistent
+Class dc.sample.PersistentClass Extends %Persistent
 {
 
 Property Test As %VarString;

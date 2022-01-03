@@ -1,3 +1,4 @@
+/// an example of Installer class just to create a new clear namespace and database IRISAPP
 Class App.Installer
 {
 

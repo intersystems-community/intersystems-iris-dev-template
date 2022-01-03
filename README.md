@@ -38,7 +38,7 @@ Open IRIS terminal:
 
 ```
 $ docker-compose exec iris iris session iris
-IRISAPP>write ##class(dc.PackageSample.ObjectScript).Test()
+IRISAPP>write ##class(dc.sample.ObjectScript).Test()
 ```
 ## How to start coding
 This repository is ready to code in VSCode with ObjectScript plugin.

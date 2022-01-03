@@ -5,6 +5,11 @@ use it when docker says "There is no space left on device". It will remove built
 docker system prune -f
 ```
 
+```
+docker rm -f $(docker ps -qa)
+```
+
+
 ## build container with no cache
 ```
 docker-compose build --no-cache --progress=plain
@@ -59,3 +64,8 @@ zn "%SYS" \
 
 zw ##class(community.csvgen).GenerateFromURL("https://github.com/h2oai/h2o-tutorials/raw/master/h2o-world-2017/automl/data/product_backorders.csv")
 
+Import directory with IRIS code
+
+```
+do $SYSTEM.OBJ.ImportDir("/opt/irisbuild/src",, "ck") 
+```   
