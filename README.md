@@ -41,7 +41,7 @@ $ docker-compose up -d
 Open IRIS terminal:
 
 ```
-$ docker-compose exec iris iris session iris
+$ docker-compose exec iris iris session iris -U IRISAPP
 IRISAPP>write ##class(dc.sample.ObjectScript).Test()
 ```
 ## How to start coding
