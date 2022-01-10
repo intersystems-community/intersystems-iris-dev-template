@@ -44,6 +44,12 @@ Open IRIS terminal:
 $ docker-compose exec iris iris session iris -U IRISAPP
 IRISAPP>write ##class(dc.sample.ObjectScript).Test()
 ```
+
+To exit the terminal, do any of the following:
+```
+Enter HALT or H (not case-sensitive)
+```
+
 ## How to start coding
 This repository is ready to code in VSCode with ObjectScript plugin.
 Install [VSCode](https://code.visualstudio.com/), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) and [ObjectScript](https://marketplace.visualstudio.com/items?itemName=daimor.vscode-objectscript) plugin and open the folder in VSCode.
