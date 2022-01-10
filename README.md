@@ -1,6 +1,7 @@
  [![Gitter](https://img.shields.io/badge/Available%20on-Intersystems%20Open%20Exchange-00b2a9.svg)](https://openexchange.intersystems.com/package/intersystems-iris-dev-template)
  [![Quality Gate Status](https://community.objectscriptquality.com/api/project_badges/measure?project=intersystems_iris_community%2Fintersystems-iris-dev-template&metric=alert_status)](https://community.objectscriptquality.com/dashboard?id=intersystems_iris_community%2Fintersystems-iris-dev-template)
  [![Reliability Rating](https://community.objectscriptquality.com/api/project_badges/measure?project=intersystems_iris_community%2Fintersystems-iris-dev-template&metric=reliability_rating)](https://community.objectscriptquality.com/dashboard?id=intersystems_iris_community%2Fintersystems-iris-dev-template)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat&logo=AdGuard)](LICENSE)
 
 # intersystems-iris-dev-template
 This is a basic template to develop with InterSystems IRIS
@@ -18,7 +19,7 @@ Once you clone the new repo on your laptop and open the VSCode with installed In
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
-## Installation 
+## Installation
 Clone/git pull the repo into any local directory
 ```
 $ git clone https://github.com/intersystems-community/intersystems-iris-dev-template.git
@@ -73,7 +74,7 @@ Use the related docker-compose.yml to easily setup additional parametes like por
 
 ### src folder
 src/iris contains InterSystems IRIS Objectscript code
-src/java containers Java code 
+src/java containers Java code
 src/python - python code, etc.
 
 
