@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat&logo=AdGuard)](LICENSE)
 # intersystems-iris-dev-template
-This is a basic template of a dev environment to develop with InterSystems IRIS ObjectScript
+This is a basic template of a dev environment to  edit, make a package module, compile, debug, test,  commit/push the objectscript code with InterSystems IRIS. 
 
 ## Description
 The idea of the repository is to provide a read-to-go dev environment if one needs to code InterSystems ObjectScript.
