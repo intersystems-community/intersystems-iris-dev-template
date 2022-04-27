@@ -22,7 +22,9 @@ Once you clone the new repo to your laptop and open VSCode (with the [InterSyste
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
 ## Installation 
+
 Clone/git pull the repo into any local directory
+
 ```
 $ git clone https://github.com/intersystems-community/intersystems-iris-dev-template.git
 ```
@@ -34,19 +36,22 @@ $ docker-compose up -d
 ```
 
 To open IRIS Terminal do:
+
 ```
 $ docker-compose exec iris iris session iris -U IRISAPP
 IRISAPP>
 ```
 
 To exit the terminal, do any of the following:
+
 ```
 Enter HALT or H (not case-sensitive)
 ```
+
 ## What does it do
 THe sample repository contains two simplest examples of ObjectScript classes: ObjectScript method that returns value and method that creates a persistent record.
-1. 
-Open IRIS terminal and run the ObjectScript Test() method to see if runs the script and returns values from IRIS:
+
+1. Open IRIS terminal and run the ObjectScript Test() method to see if runs the script and returns values from IRIS:
 
 ```
 $ docker-compose exec iris iris session iris -U IRISAPP
@@ -57,37 +62,46 @@ It works!
 
 
 
-2. 
-Class dc.sample.PersistentClass contains a method CreateRecord that creates an object with one property Test and returns its id.
+2. Class `dc.sample.PersistentClass` contains a method `CreateRecord` that creates an object with one property, `Test`, and returns its id.
+
 Open IRIS terminal and run:
+
 ```
 IRISAPP>write ##class(dc.sample.PersistentClass).CreateRecord(.id)
 1
 IRISAPP>write id
 1
 ```
+
 In your case the value of id could be different. And it will be different with every call of the method.
 
 You can check whether the record exists and try to right the property of the object by its id.
+
 ```
 IRISAPP>write ##class(dc.sample.PersistentClass).ReadProperty(id)
 Test string
 ```
 
 ## How to start the development
-This repository is ready to code in VSCode with ObjectScript plugin.
+
+This repository is ready to code in VSCode with the ObjectScript plugin.
+
 Install [VSCode](https://code.visualstudio.com/), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) and the [InterSystems ObjectScript Extension Pack](https://marketplace.visualstudio.com/items?itemName=intersystems-community.objectscript-pack) plugin and open the folder in VSCode.
-Open /src/cls/PackageSample/ObjectScript.cls class and try to make changes - it will be compiled in running IRIS docker container.
+
+Open the `/src/cls/PackageSample/ObjectScript.cls` class and make changes - it will be compiled in the running IRIS docker container.
+
 ![docker_compose](https://user-images.githubusercontent.com/2781759/76656929-0f2e5700-6547-11ea-9cc9-486a5641c51d.gif)
 
-Feel free to delete PackageSample folder and place your ObjectScript classes in the form
-/src/organisation/package/Classname.cls
-[Read more about folder setup for InterSystems ObjectScript](https://community.intersystems.com/post/simplified-objectscript-source-folder-structure-package-manager)
-and her on the [naming convention]()
+Feel free to delete the PackageSample folder and place your ObjectScript classes in the form
+`/src/organisation/package/Classname.cls`
+
+[Read more about folder setup for InterSystems ObjectScript](https://community.intersystems.com/post/simplified-objectscript-source-folder-structure-package-manager) and here on the [naming convention]()
 
 ## Running unit tests
-The template contains to test classes: `TestObjectScript.cls` and `TestPersistentClass.cls `
-To run the unit tests we can use Package Manager environment.
+
+The template contains two test classes: `TestObjectScript.cls` and `TestPersistentClass.cls `
+
+To run the unit tests we can use the Package Manager environment.
 
 ```
 IRISAPP>zpm
@@ -136,7 +150,8 @@ All PASSED
 zpm:IRISAPP>
 ```
 
-In case of test errors you can check it back in the UnitTest portal, that can be easily opened via ObjectScript menu in VSCode:
+In case of test errors, you can find more details back in the UnitTest portal, which can be easily opened via ObjectScript menu in VSCode:
+
 ![vscvode unittest](https://user-images.githubusercontent.com/2781759/152678943-7d9d9696-e26a-449f-b1d7-f924528c8e3a.png)
 
 ## What else is inside the repository
