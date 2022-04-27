@@ -95,7 +95,7 @@ Open the `/src/cls/PackageSample/ObjectScript.cls` class and make changes - it w
 Feel free to delete the PackageSample folder and place your ObjectScript classes in the form
 `/src/organisation/package/Classname.cls`
 
-[Read more about folder setup for InterSystems ObjectScript](https://community.intersystems.com/post/simplified-objectscript-source-folder-structure-package-manager) and here on the [naming convention]()
+[Read more about folder setup for InterSystems ObjectScript](https://community.intersystems.com/post/simplified-objectscript-source-folder-structure-package-manager) and here on the [naming convention](https://community.intersystems.com/post/naming-convention-objectscript-packages-classes-and-package-manager-modules-names)
 
 ## Running unit tests
 
