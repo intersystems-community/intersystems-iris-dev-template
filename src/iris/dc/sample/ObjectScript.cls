@@ -3,9 +3,9 @@ Class dc.sample.ObjectScript
 
 ClassMethod Test() As %Status
 {
-    set a=42 
+    set a=43 
     write "It works!",!
-    return 42
+    return a
 }
 
 }
