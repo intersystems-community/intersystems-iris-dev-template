@@ -3,7 +3,7 @@
   <Document name="dc-sample-template.ZPM">
     <Module>
       <Name>dc-sample-template</Name>
-      <Version>1.1.0</Version>
+      <Version>1.1.1</Version>
       <Description>A basic module template for InterSystems ObjectScript with Unittests</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src/iris</SourcesRoot>
