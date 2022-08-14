@@ -27,8 +27,12 @@ docker-compose exec iris iris session iris -U IRISAPP
 - ~/iris.key:/usr/irissys/mgr/iris.key
 
 ## install git in the docker image
-## add git
+## add git in dockerfile
+USER root
 RUN apt update && apt-get -y install git
+
+USER ${ISC_PACKAGE_MGRUSER}
+
 
 ## install docker-compose
 ```
