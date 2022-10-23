@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat&logo=AdGuard)](LICENSE)
 # intersystems-iris-dev-template
 This is a basic template for a development environment to work with ObjectScript in InterSystems IRIS. It helps you edit, compile, commit/push, debug and test your ObjectScript code. It also aids in packaging your application as a module installable with ZPM. 
+The template is embedded python compatible.
 
 ## Description
 This repository provides a read-to-go development environment for coding productively with InterSystems ObjectScript. This template:
@@ -13,6 +14,7 @@ This repository provides a read-to-go development environment for coding product
 * Loads the ObjectScript code into IRISAPP database using Package Manager 
 * Promotes development with the 'Package First' paradigm. [Watch the video](https://www.youtube.com/watch?v=havPyPbUj1I)
 * Provides a unit testing environment: sample unit tests, tests module enablement
+* Ready for embedded python development: ENV varialbes are set up, CallIn service is On, all modules in requirements.txt will be installed during docker build.
 
 ## Usage
 Start a new dev repository with InterSystems IRIS using this one as a template.
