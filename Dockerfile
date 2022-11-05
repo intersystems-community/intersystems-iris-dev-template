@@ -6,6 +6,11 @@ FROM $IMAGE
 
 WORKDIR /home/irisowner/irisbuild
 
+## install git
+## USER root   
+##RUN apt update && apt-get -y install git
+##USER ${ISC_PACKAGE_MGRUSER}
+
 ARG TESTS=0
 ARG MODULE="dc-sample-template"
 ARG NAMESPACE="IRISAPP"
