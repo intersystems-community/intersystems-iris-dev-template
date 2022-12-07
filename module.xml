@@ -3,7 +3,7 @@
   <Document name="banksia-demo.ZPM">
     <Module>
       <Name>banksia-demo</Name>
-      <Version>1.0.0</Version>
+      <Version>1.0.1</Version>
       <Description>Super demo Super Banksia-Global</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src/iris</SourcesRoot>
