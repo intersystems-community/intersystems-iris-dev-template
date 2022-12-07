@@ -8,9 +8,9 @@ on:
 
 env:
   # Change this section according to your needs
-  IMAGE_NAME:   iris-dev-template
-  SERVICE:      iris-dev-template
-  DOMAIN_NAME:  iris-dev-template.demo.community.intersystems.com
+  IMAGE_NAME:   banksia
+  SERVICE:      banksia
+  DOMAIN_NAME:  banksia.demo.community.intersystems.com
 
   # Leave this section untouched
   PROJECT_ID:   iris-community-demos

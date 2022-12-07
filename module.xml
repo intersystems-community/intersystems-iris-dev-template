@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="dc-sample-template.ZPM">
+  <Document name="banksia-demo.ZPM">
     <Module>
-      <Name>dc-sample-template</Name>
-      <Version>1.1.8</Version>
-      <Description>A basic module template for InterSystems ObjectScript with Unittests</Description>
+      <Name>banksia-demo</Name>
+      <Version>1.0.0</Version>
+      <Description>Super demo Super Banksia-Global</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src/iris</SourcesRoot>
       <Resource Name="dc.sample.PKG"/>
       <UnitTest Name="/tests" Package="dc.sample.unittests" Phase="test"/>
+
     </Module>
   </Document>
 </Export>
