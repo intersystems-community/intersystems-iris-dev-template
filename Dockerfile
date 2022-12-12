@@ -5,7 +5,7 @@ ARG IMAGE=intersystemsdc/iris-community
 ARG IMAGE=intersystemsdc/iris-community:preview
 FROM $IMAGE
 
-WORKDIR /home/irisowner/irisbuild
+WORKDIR /home/irisowner/irisdev
 
 ## install git
 ## USER root   

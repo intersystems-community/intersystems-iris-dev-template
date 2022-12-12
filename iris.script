@@ -9,11 +9,11 @@
     do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
     // create IRISAPP namespace
-    do $SYSTEM.OBJ.Load("/home/irisowner/irisbuild/Installer.cls", "ck") 
+    do $SYSTEM.OBJ.Load("/home/irisowner/irisdev/Installer.cls", "ck") 
     set sc = ##class(App.Installer).setup() 
 
 
     // load all the code of the project as a ZPM package
     zn "IRISAPP"
-    zpm "load /home/irisowner/irisbuild/ -v":1:1
+    zpm "load /home/irisowner/irisdev/ -v":1:1
     halt

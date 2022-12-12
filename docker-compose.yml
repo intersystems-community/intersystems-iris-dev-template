@@ -11,4 +11,4 @@ services:
       - 52773
       - 53773
     volumes:
-      - ./:/irisrun/repo
+      - ./:/home/irisowner/irisdev
