@@ -6,7 +6,7 @@
       <Version>1.0.6</Version>
       <Description>Basic InterSystems IRIS Development Template</Description>
       <Packaging>module</Packaging>
-      <SourcesRoot>src/iris</SourcesRoot>
+      <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.sample.PKG"/>
       <UnitTest Name="/tests" Package="dc.sample.unittests" Phase="test"/>
 

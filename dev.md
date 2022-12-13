@@ -42,6 +42,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```
 
+## load and test module
+```
+
+zpm "load /home/irisowner/irisdev"
+
+zpm "test dc-sample"
+```
+
 ## select zpm test registry
 ```
 repo -n registry -r -url https://test.pm.community.intersystems.com/registry/ -user test -pass PassWord42
