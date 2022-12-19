@@ -10,7 +10,7 @@ env:
   # Change this section according to your needs
   IMAGE_NAME:   online
   SERVICE:      online
-  DOMAIN_NAME:  online.demo.community.intersystems.com
+  DOMAIN_NAME:  online.community.intersystems.com
 
   # Leave this section untouched
   PROJECT_ID:   iris-community-demos
@@ -26,20 +26,31 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
- 
-    - name: Setup Cloud SDK
-      uses: google-github-actions/setup-gcloud@v0.2.0
+      uses: actions/checkout@v3
+
+    - name: Google Authentication
+      uses: google-github-actions/auth@v1.0.0
       with:
-        version: '327.0.0'
-        service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+
+    - name: Get GKE credentials
+      uses: google-github-actions/get-gke-credentials@v1.0.1
+      with:
+        project_id: iris-community-demos
+        cluster_name: demo
+        location: europe-west2
+
+    - name: Setup gcloud cli
+      uses: google-github-actions/setup-gcloud@v1.0.0
+      with:
+        version: '412.0.0'
 
     - name: Authorize Docker push
-      run: gcloud auth configure-docker
+      run: gcloud --quiet auth configure-docker
 
     - name: Build and Push image
       run: |
-        docker buildx build -t ${GCR_LOCATION}/${PROJECT_ID}/${IMAGE_NAME}:${GITHUB_SHA} .
+        docker build -t ${GCR_LOCATION}/${PROJECT_ID}/${IMAGE_NAME}:${GITHUB_SHA} .
         docker push ${GCR_LOCATION}/${PROJECT_ID}/${IMAGE_NAME}:${GITHUB_SHA}
 
     - name: Deploy to Cloud Run
@@ -55,7 +66,7 @@ jobs:
           --namespace ${NAMESPACE}     \
           --port 52773                 \
           --min-instances 1            \
-          --memory 512Mi               \
+          --memory 1Gi               \
           --timeout 300                \
           --verbosity debug            \
           --image ${GCR_LOCATION}/${PROJECT_ID}/${IMAGE_NAME}:${GITHUB_SHA}
@@ -74,7 +85,6 @@ jobs:
 
     - name: Create domain name
       run: |
-        gcloud container clusters get-credentials ${CLUSTER_NAME} --region ${REGION} --project ${PROJECT_ID}
         kubectl version
         echo "[INFO] Checking if [${DOMAIN_NAME}] is in the existing Ingress annotation..."
         CURRENT_DOMAINS_LIST=$(kubectl -n gke-system get svc istio-ingress -o jsonpath="{.metadata.annotations['external-dns\.alpha\.kubernetes\.io/hostname']}")
@@ -89,6 +99,4 @@ jobs:
 
     - name: Enable TLS-access
       run: |
-        gcloud container clusters get-credentials ${CLUSTER_NAME} --region ${REGION} --project ${PROJECT_ID}
-        kubectl version
         kubectl patch configmap config-domainmapping -n knative-serving -p '{"data":{"autoTLS":"Enabled"}}'
