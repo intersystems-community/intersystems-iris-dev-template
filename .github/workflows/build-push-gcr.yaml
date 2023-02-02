@@ -10,7 +10,7 @@ env:
   # Change this section according to your needs
   IMAGE_NAME:   online
   SERVICE:      online
-  DOMAIN_NAME:  online.community.intersystems.com
+  DOMAIN_NAME:  online.demo.community.intersystems.com
 
   # Leave this section untouched
   PROJECT_ID:   iris-community-demos
