@@ -5,98 +5,15 @@ on:
     branches:
     - master
     - main
-
-env:
-  # Change this section according to your needs
-  IMAGE_NAME:   online
-  SERVICE:      online
-  DOMAIN_NAME:  online.demo.community.intersystems.com
-
-  # Leave this section untouched
-  PROJECT_ID:   iris-community-demos
-  CLUSTER_NAME: demo
-  GITHUB_SHA:   ${{ github.sha }}
-  GCR_LOCATION: eu.gcr.io
-  REGION:       europe-west2
-  NAMESPACE:    demo
+  workflow_dispatch:
 
 jobs:
-  deploy-cloud-run:
-    name: Deploy to Cloud Run
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-
-    - name: Google Authentication
-      uses: google-github-actions/auth@v1.0.0
-      with:
-        credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-
-    - name: Get GKE credentials
-      uses: google-github-actions/get-gke-credentials@v1.0.1
-      with:
-        project_id: iris-community-demos
-        cluster_name: demo
-        location: europe-west2
-
-    - name: Setup gcloud cli
-      uses: google-github-actions/setup-gcloud@v1.0.0
-      with:
-        version: '412.0.0'
-
-    - name: Authorize Docker push
-      run: gcloud --quiet auth configure-docker
-
-    - name: Build and Push image
-      run: |
-        docker buildx build -t ${GCR_LOCATION}/${PROJECT_ID}/${IMAGE_NAME}:${GITHUB_SHA} .
-        docker push ${GCR_LOCATION}/${PROJECT_ID}/${IMAGE_NAME}:${GITHUB_SHA}
-
-    - name: Deploy to Cloud Run
-      run: |
-        echo "[INFO] Set google project..."
-        gcloud config set project ${PROJECT_ID}
-
-        echo "[INFO] Deploy service..."
-        gcloud run deploy ${SERVICE}   \
-          --platform gke               \
-          --cluster ${CLUSTER_NAME}    \
-          --cluster-location ${REGION} \
-          --namespace ${NAMESPACE}     \
-          --port 52773                 \
-          --min-instances 1            \
-          --memory 512Mi               \
-          --timeout 300                \
-          --verbosity debug            \
-          --image ${GCR_LOCATION}/${PROJECT_ID}/${IMAGE_NAME}:${GITHUB_SHA}
-
-        echo "[INFO] Create domain mappings..."
-        if [[ $(gcloud run domain-mappings list --platform gke --cluster ${CLUSTER_NAME} --cluster-location ${REGION} --namespace ${NAMESPACE} --filter "DOMAIN=${DOMAIN_NAME}" | grep -v DOMAIN | wc -l) == 0 ]]; then
-          gcloud run domain-mappings create \
-            --service ${SERVICE}            \
-            --platform gke                  \
-            --cluster ${CLUSTER_NAME}       \
-            --cluster-location ${REGION}    \
-            --namespace ${NAMESPACE}        \
-            --verbosity debug               \
-            --domain ${DOMAIN_NAME}
-        fi
-
-    - name: Create domain name
-      run: |
-        kubectl version
-        echo "[INFO] Checking if [${DOMAIN_NAME}] is in the existing Ingress annotation..."
-        CURRENT_DOMAINS_LIST=$(kubectl -n gke-system get svc istio-ingress -o jsonpath="{.metadata.annotations['external-dns\.alpha\.kubernetes\.io/hostname']}")
-        if [[ $(echo ${CURRENT_DOMAINS_LIST} | grep -w "${DOMAIN_NAME}" | wc -c) -eq 0 ]]; then \
-          echo "[INFO] Domain [${DOMAIN_NAME}] is ABSENT in the domains list. Adding...";       \
-          kubectl -n gke-system annotate --overwrite svc istio-ingress external-dns\.alpha\.kubernetes\.io/hostname=${CURRENT_DOMAINS_LIST},${DOMAIN_NAME}; \
-          echo -n "[INFO] Resulting domain names: "
-          kubectl -n gke-system get svc istio-ingress -o jsonpath="{.metadata.annotations['external-dns\.alpha\.kubernetes\.io/hostname']}"
-        else
-          echo "[INFO] Domain [${DOMAIN_NAME}] is in the domains list. Leave untouched...";     \
-        fi
-
-    - name: Enable TLS-access
-      run: |
-        kubectl patch configmap config-domainmapping -n knative-serving -p '{"data":{"autoTLS":"Enabled"}}'
+  deploy:
+    uses: intersystems-community/demo-deployment/.github/workflows/deployment.yml@master
+    with:
+      # Replace the name: parameter below to have your application deployed at
+      # https://project-name.demo.community.intersystems.com/
+      name: project-name
+    secrets:
+      # Do not forget to add Secret in GitHub Repoository Settings with name SERVICE_ACCOUNT_KEY
+      SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
