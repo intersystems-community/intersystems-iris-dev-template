@@ -16,7 +16,6 @@
       "links": {
         "UnitTest Portal": "${serverUrl}/csp/sys/%25UnitTest.Portal.Home.cls?$NAMESPACE=IRISAPP"
       }
-    },
-    "workbench.colorTheme": "InterSystems Default Dark"
+    }
 
 }

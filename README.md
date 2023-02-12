@@ -8,7 +8,7 @@ This is a basic template for a development environment to work with ObjectScript
 The template is embedded python compatible.
 
 ## Description
-This repository provides a read-to-go development environment for coding productively with InterSystems ObjectScript. This template:
+This repository provides a ready-to-go development environment for coding productively with InterSystems ObjectScript. This template:
 * Runs InterSystems IRIS Community Edition in a docker container
 * Creates a new namespace and database IRISAPP
 * Loads the ObjectScript code into IRISAPP database using Package Manager 
@@ -31,7 +31,11 @@ Clone/git pull the repo into any local directory
 $ git clone https://github.com/intersystems-community/intersystems-iris-dev-template.git
 ```
 
-Open the terminal in this directory and call the command to build and run InterSystems IRIS in container:
+Open the terminal in this directory and call the command to build and run InterSystems IRIS in container:  
+*Note: Users running containers on a Linux CLI, should use "docker compose" instead of "docker-compose"*  
+*See [Install the Compose plugin](https://docs.docker.com/compose/install/linux/)*
+
+
 
 ```
 $ docker-compose up -d
