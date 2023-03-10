@@ -12,8 +12,10 @@
     do $SYSTEM.OBJ.Load("/home/irisowner/irisdev/Installer.cls", "ck") 
     set sc = ##class(App.Installer).setup() 
 
-
+    // comment the line below for production images
+    zpm "install passwordless"
     // load all the code of the project as a ZPM package
     zn "IRISAPP"
+    
     zpm "load /home/irisowner/irisdev/ -v":1:1
     halt
