@@ -227,5 +227,5 @@ If you have issues with docker image building here are some recipes that could h
 docker system prune -f
 ```
 
-2. We use multi-stage image building which in some cases doesn't work. Switch the target to builder from final in the docker compose and try again.
+2. We use multi-stage image building which in some cases doesn't work. Switch the target to [builder](https://github.com/intersystems-community/intersystems-iris-dev-template/blob/6ab6791983e5783118efce1777a7671046652e4c/docker-compose.yml#L7) from final in the docker compose and try again.
 
