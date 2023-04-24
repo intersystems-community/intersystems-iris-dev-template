@@ -4,14 +4,14 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat&logo=AdGuard)](LICENSE)
 # intersystems-iris-dev-template
-This is a basic template for a development environment to work with ObjectScript in InterSystems IRIS. It helps you edit, compile, commit/push, debug and test your ObjectScript code. It also aids in packaging your application as a module installable with IPM. 
+This is a basic template for a development environment to work with ObjectScript in InterSystems IRIS. It helps you edit, compile, commit/push, debug and test your ObjectScript code. It also aids in packaging your application as a module installable with IPM.
 The template is embedded python compatible.
 
 ## Description
 This repository provides a ready-to-go development environment for coding productively with InterSystems ObjectScript. This template:
 * Runs InterSystems IRIS Community Edition in a docker container
 * Creates a new namespace and database IRISAPP
-* Loads the ObjectScript code into IRISAPP database using Package Manager 
+* Loads the ObjectScript code into IRISAPP database using Package Manager
 * Promotes development with the 'Package First' paradigm. [Watch the video](https://www.youtube.com/watch?v=havPyPbUj1I)
 * Provides a unit testing environment: sample unit tests, tests module enablement
 * Ready for embedded python development: ENV varialbes are set up, CallIn service is On, all modules in requirements.txt will be installed during docker build.
@@ -23,7 +23,7 @@ Once you clone the new repo to your laptop and open VSCode (with the [InterSyste
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
-## Installation 
+## Installation
 
 Clone/git pull the repo into any local directory
 
@@ -31,8 +31,8 @@ Clone/git pull the repo into any local directory
 $ git clone https://github.com/intersystems-community/intersystems-iris-dev-template.git
 ```
 
-Open the terminal in this directory and call the command to build and run InterSystems IRIS in container:  
-*Note: Users running containers on a Linux CLI, should use "docker compose" instead of "docker-compose"*  
+Open the terminal in this directory and call the command to build and run InterSystems IRIS in container:
+*Note: Users running containers on a Linux CLI, should use "docker compose" instead of "docker-compose"*
 *See [Install the Compose plugin](https://docs.docker.com/compose/install/linux/)*
 
 
@@ -164,8 +164,8 @@ In case of test errors, you can find more details back in the UnitTest portal, w
 
 ### .github folder
 
-Contains two GitHub actions workflows: 
-1. `github-registry.yml` 
+Contains two GitHub actions workflows:
+1. `github-registry.yml`
     Once changes pushed to the repo, the action builds the docker image on Github side and pushes the image to Github registry that can be very convenient to further cloud deployement, e.g. kubernetes.
 2. `objectscript-qaulity.yml`
     with every push to master or main branch the workflow launches the repo test on objectscript issues with Objectscript Quality tool, [see the examples](https://community.objectscriptquality.com/projects?sort=-analysis_date). This works if the repo is open-source only.
@@ -215,4 +215,17 @@ IPM Module's description of the code in the repository.
 It describes what is loaded with the method, how it is being tested and what apps neeed to be created, what files need to be copied.
 
 [Read about all the files in this artilce](https://community.intersystems.com/post/dockerfile-and-friends-or-how-run-and-collaborate-objectscript-projects-intersystems-iris)
+
+
+
+## Troubleshooting
+
+If you have issues with docker image building here are some recipes that could help.
+
+1. You are out of free space in docker. You can expand the amount of space or clean up maually via docker desktop. Or you can call the following line to clean up:
+```
+docker system prune -f
+```
+
+2. We use multi-stage image building which in some cases doesn't work. Switch the target to builder from final in the docker compose and try again.
 

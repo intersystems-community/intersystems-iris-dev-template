@@ -1,11 +1,11 @@
 {
     "files.associations": {
-    
+
         "Dockerfile*": "dockerfile",
         "iris.script": "objectscript"
       },
     "objectscript.conn" :{
-      "active": false,
+      "active": true,
       "ns": "IRISAPP",
       "username": "_SYSTEM",
       "password": "SYS",

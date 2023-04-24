@@ -1,12 +1,13 @@
 version: '3.6'
 services:
   iris:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
+      target: final
     restart: always
     command: --check-caps false --ISCAgent false
-    ports: 
+    ports:
       - 1972
       - 52773
       - 53773
