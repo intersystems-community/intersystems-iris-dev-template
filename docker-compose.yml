@@ -12,4 +12,4 @@ services:
       - 52773
       - 53773
     volumes:
-      - ./:/home/irisowner/irisdev
+      - ./:/home/irisowner/dev
