@@ -1,4 +1,4 @@
-Class dc.sample.unittests.TestCreateRecord Extends %UnitTest.TestCase
+Class dc.sample.unittests.TestPersistentClass Extends %UnitTest.TestCase
 {
 
 Method TestCreateRecord()
