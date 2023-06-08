@@ -17,7 +17,6 @@
     set prop("AutheEnabled")=32
     set prop("AutoCompile")=0
     set prop("Description")="Storage for VS Code namespace-specific settings, snippets, debug configurations etc."
-    set prop("InbndWebServicesEnabled")=0
     set prop("NameSpace")="%SYS"
     set prop("Path")="/usr/irissys/.vscode"
     set sc=##class(Security.Applications).Create("/_vscode",.prop)
