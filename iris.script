@@ -22,7 +22,7 @@
     set sc=##class(Security.Applications).Create("/_vscode",.prop)
 
     // Configure %UnitTest in IRISAPP to suit the VS Code extension
-    set ^UnitTestRoot=prop("Path")_"/IRISAPP/UnitTestRoot"
+    set ^|"IRISAPP"|UnitTestRoot=prop("Path")_"/IRISAPP/UnitTestRoot"
 
     // comment the line below for production images
     zpm "install passwordless"
