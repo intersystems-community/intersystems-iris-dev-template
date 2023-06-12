@@ -1,8 +1,11 @@
-    // Unexpire passwords to simplify dev mode. Comment these two lines for Production use
     zn "%SYS"
-    Do ##class(Security.Users).UnExpireUserPasswords("*")
 
-    ; enabling callin for Embedded Python
+    // Unexpire passwords and set up passwordless mode to simplify dev use.
+    // ** Comment out these two line for Production use **
+    do ##class(Security.Users).UnExpireUserPasswords("*")
+    zpm "install passwordless"
+
+    // Enable callin for Embedded Python
     do ##class(Security.Services).Get("%Service_CallIn",.prop)
     set prop("Enabled")=1
     set prop("AutheEnabled")=48
@@ -12,22 +15,13 @@
     do $SYSTEM.OBJ.Load("/home/irisowner/dev/Installer.cls", "ck")
     set sc = ##class(App.Installer).setup()
 
-    // create /_vscode web app to support intersystems-community.testingmanager VS Code extension
-    kill prop
-    set prop("AutheEnabled")=32
-    set prop("AutoCompile")=0
-    set prop("Description")="Storage for VS Code namespace-specific settings, snippets, debug configurations etc."
-    set prop("NameSpace")="%SYS"
-    set prop("Path")="/usr/irissys/.vscode"
-    set sc=##class(Security.Applications).Create("/_vscode",.prop)
+    zn "IRISAPP"
+
+    // Create /_vscode web app to support intersystems-community.testingmanager VS Code extension
+    zpm "install vscode-per-namespace-settings"
 
     // Configure %UnitTest in IRISAPP to suit the VS Code extension
-    set ^|"IRISAPP"|UnitTestRoot=prop("Path")_"/IRISAPP/UnitTestRoot"
-
-    // comment the line below for production images
-    zpm "install passwordless"
-    // load all the code of the project as a ZPM package
-    zn "IRISAPP"
+    set ^UnitTestRoot="/usr/irissys/.vscode/IRISAPP/UnitTestRoot"
 
     zpm "load /home/irisowner/dev/ -v":1:1
     halt
