@@ -10,7 +10,6 @@ ClassMethod CreateRecord(ByRef id As %Integer) As %Status
         write "from Python       : "
         set builtins = ##class(%SYS.Python).Import("builtins")
         set id = builtins.list()
-        #; set id=0
         set sc = ..CreateRecordPython(id)
         write id."__getitem__"(0)," successfully created with CreateRecordPython",!
         write "from ObjectScript : "
