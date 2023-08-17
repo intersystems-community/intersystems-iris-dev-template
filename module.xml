@@ -3,7 +3,7 @@
   <Document name="dc-sample.ZPM">
     <Module>
       <Name>dc-sample</Name>
-      <Version>1.0.25</Version>
+      <Version>1.0.26</Version>
       <Description>Basic InterSystems IRIS Development Template</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
