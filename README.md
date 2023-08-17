@@ -116,49 +116,52 @@ IRISAPP>zpm
 || Welcome to the Package Manager Shell (ZPM).                             ||
 || Enter q/quit to exit the shell. Enter ?/help to view available commands ||
 =============================================================================
-zpm:IRISAPP>load /irisrun/repo
+zpm:IRISAPP>load /home/irisowner/dev
 
-[dc-sample-template]    Reload START (/irisrun/repo/)
-[dc-sample-template]    Reload SUCCESS
-[dc-sample-template]    Module object refreshed.
-[dc-sample-template]    Validate START
-[dc-sample-template]    Validate SUCCESS
-[dc-sample-template]    Compile START
-[dc-sample-template]    Compile SUCCESS
-[dc-sample-template]    Activate START
-[dc-sample-template]    Configure START
-[dc-sample-template]    Configure SUCCESS
-[dc-sample-template]    MakeDeployed START
-[dc-sample-template]    MakeDeployed SUCCESS
-[dc-sample-template]    Activate SUCCESS
-zpm:IRISAPP>test dc-sample-template
+[IRISAPP|dc-sample]     Reload START (/home/irisowner/dev/)
+[IRISAPP|dc-sample]     requirements.txt START
+[IRISAPP|dc-sample]     requirements.txt SUCCESS
+[IRISAPP|dc-sample]     Reload SUCCESS
+[dc-sample]     Module object refreshed.
+[IRISAPP|dc-sample]     Validate START
+[IRISAPP|dc-sample]     Validate SUCCESS
+[IRISAPP|dc-sample]     Compile START
+[IRISAPP|dc-sample]     Compile SUCCESS
+[IRISAPP|dc-sample]     Activate START
+[IRISAPP|dc-sample]     Configure START
+[IRISAPP|dc-sample]     Configure SUCCESS
+[IRISAPP|dc-sample]     Activate SUCCESS
+zpm:IRISAPP>test dc-sample
 
-[dc-sample-template]    Reload START (/irisrun/repo/)
-[dc-sample-template]    Reload SUCCESS
-[dc-sample-template]    Module object refreshed.
-[dc-sample-template]    Validate START
-[dc-sample-template]    Validate SUCCESS
-[dc-sample-template]    Compile START
-[dc-sample-template]    Compile SUCCESS
-[dc-sample-template]    Activate START
-[dc-sample-template]    Configure START
-[dc-sample-template]    Configure SUCCESS
-[dc-sample-template]    MakeDeployed START
-[dc-sample-template]    MakeDeployed SUCCESS
-[dc-sample-template]    Activate SUCCESS
-[dc-sample-template]    Test STARTIt works!
-
+[IRISAPP|dc-sample]     Reload START (/home/irisowner/dev/)
+[IRISAPP|dc-sample]     Reload SUCCESS
+[dc-sample]     Module object refreshed.
+[IRISAPP|dc-sample]     Validate START
+[IRISAPP|dc-sample]     Validate SUCCESS
+[IRISAPP|dc-sample]     Compile START
+[IRISAPP|dc-sample]     Compile SUCCESS
+[IRISAPP|dc-sample]     Activate START
+[IRISAPP|dc-sample]     Configure START
+[IRISAPP|dc-sample]     Configure SUCCESS
+[IRISAPP|dc-sample]     Activate SUCCESS
+[IRISAPP|dc-sample]     Test STARTHello World!
+This is InterSystems IRIS with version IRIS for UNIX (Ubuntu Server LTS for ARM64 Containers) 2023.2 (Build 221U) Fri Jul 21 2023 15:12:42 EDT
+Current time is: 16 Aug 2023 14:32:10
 Use the following URL to view the result:
-http://172.28.0.2:52773/csp/sys/%25UnitTest.Portal.Indices.cls?Index=1&$NAMESPACE=IRISAPP
+http://172.31.0.2:52773/csp/sys/%25UnitTest.Portal.Indices.cls?Index=2&$NAMESPACE=IRISAPP
 All PASSED
 
-[dc-sample-template]    Test SUCCESS
+[IRISAPP|dc-sample]     Test SUCCESS
 zpm:IRISAPP>
 ```
 
 In case of test errors, you can find more details back in the UnitTest portal, which can be easily opened via ObjectScript menu in VSCode:
 
 ![vscvode unittest](https://user-images.githubusercontent.com/2781759/152678943-7d9d9696-e26a-449f-b1d7-f924528c8e3a.png)
+
+If you have installed the [_InterSystems Testing Manager for VS Code_ extension](https://openexchange.intersystems.com/package/InterSystems-Testing-Manager-for-VS-Code)
+you can also run unit tests directly from VSCode :
+![vscvode unittest](https://raw.githubusercontent.com/intersystems-community/intersystems-testingmanager/main/images/README/Overview-Client.gif)
 
 ## What else is inside the repository
 

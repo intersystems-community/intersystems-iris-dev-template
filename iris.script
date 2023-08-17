@@ -12,7 +12,7 @@
     do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
     // create IRISAPP namespace
-    do $SYSTEM.OBJ.Load("/home/irisowner/dev/Installer.cls", "ck")
+    do $SYSTEM.OBJ.Load("/home/irisowner/dev/App.Installer.cls", "ck")
     set sc = ##class(App.Installer).setup()
 
     zn "IRISAPP"
