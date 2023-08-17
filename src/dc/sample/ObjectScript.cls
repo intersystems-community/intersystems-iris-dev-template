@@ -35,7 +35,7 @@ import iris
 from datetime import datetime
 a=42 
 print("Hello World! from",iris.cls('dc.sample.ObjectScript')._ClassName(1),"in Python language")
-print("This is InterSystems IRIS with version",iris.cls('%SYSTEM.Version').GetVersion())
+print("This is InterSystems IRIS with version",iris.system.Version.GetVersion())
 print("Current time is:",datetime.now())
 return a
 }
