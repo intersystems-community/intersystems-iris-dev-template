@@ -5,11 +5,11 @@
     do ##class(Security.Users).UnExpireUserPasswords("*")
     zpm "install passwordless"
 
-    // Enable callin for Embedded Python
-    do ##class(Security.Services).Get("%Service_CallIn",.prop)
-    set prop("Enabled")=1
-    set prop("AutheEnabled")=48
-    do ##class(Security.Services).Modify("%Service_CallIn",.prop)
+    // Enable callin for Embedded Python - see merge.cpf
+    //do ##class(Security.Services).Get("%Service_CallIn",.prop)
+    //set prop("Enabled")=1
+    //set prop("AutheEnabled")=48
+    //do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
     // create IRISAPP namespace
     do $SYSTEM.OBJ.Load("/home/irisowner/dev/App.Installer.cls", "ck")

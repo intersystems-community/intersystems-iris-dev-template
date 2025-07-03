@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile
       target: final
     restart: always
+    environment:
+      - ISC_CPF_MERGE_FILE=/home/irisowner/dev/merge.cpf
     command: --check-caps false --ISCAgent false
     ports:
       - 1972
