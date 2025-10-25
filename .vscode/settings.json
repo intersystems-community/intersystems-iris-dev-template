@@ -14,7 +14,8 @@
         "internalPort": 52773
       },
       "links": {
-        "UnitTest Portal": "${serverUrl}/csp/sys/%25UnitTest.Portal.Home.cls?$NAMESPACE=IRISAPP"
+        "UnitTest Portal": "${serverUrl}/csp/sys/%25UnitTest.Portal.Home.cls?$NAMESPACE=IRISAPP",
+        "Error Log": "${serverUrl}/csp/sys/op/UtilSysAppErrorNamespaces.csp"
       }
     },
     "intersystems.testingManager.client.relativeTestRoot": "tests"
