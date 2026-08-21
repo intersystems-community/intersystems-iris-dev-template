@@ -1,4 +1,12 @@
 [Actions]
 ModifyService:Name=%Service_CallIn,Enabled=1,AutheEnabled=48
+CreateResource:Name=%DB_IRISAPP_DATA,Description="IRISAPP_DATA database"
+CreateDatabase:Name=IRISAPP_DATA,Directory=/data/IRISAPP_DATA,Resource=%DB_IRISAPP_DATA
+CreateDatabase:Name=IRISAPP_DATAENSTEMP,Directory=/data/IRISAPP_DATA/irisapp_dataenstemp
+CreateDatabase:Name=IRISAPP_DATASECONDARY,Directory=/data/IRISAPP_DATA/irisapp_datasecondary
+CreateResource:Name=%DB_IRISAPP_CODE,Description="IRISAPP_CODE database"
+CreateDatabase:Name=IRISAPP_CODE,Directory=/usr/irissys/mgr/IRISAPP_CODE,Resource=%DB_IRISAPP_CODE
+CreateNamespace:Name=IRISAPP,Globals=IRISAPP_DATA,Routines=IRISAPP_CODE,Interop=1
+
 [Startup]
 SystemMode=IRIS Dev Template

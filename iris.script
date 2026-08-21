@@ -1,9 +1,13 @@
     zn "%SYS"
+    // Load ZPM and enable community packages
+    do $system.OBJ.Load("/tmp/zpm.xml", "ck")
+    zpm "enable -map -globally"
+    zpm "enable -community"
 
     // Unexpire passwords and set up passwordless mode to simplify dev use.
     // ** Comment out these two line for Production use **
     do ##class(Security.Users).UnExpireUserPasswords("*")
-    zpm "install passwordless"
+    //zpm "install passwordless"
 
     // Enable callin for Embedded Python - see merge.cpf
     //do ##class(Security.Services).Get("%Service_CallIn",.prop)
@@ -12,8 +16,8 @@
     //do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
     // create IRISAPP namespace
-    do $SYSTEM.OBJ.Load("/home/irisowner/dev/App.Installer.cls", "ck")
-    set sc = ##class(App.Installer).setup()
+    //do $SYSTEM.OBJ.Load("/home/irisowner/dev/App.Installer.cls", "ck")
+    //set sc = ##class(App.Installer).setup()
 
     zn "IRISAPP"
 
